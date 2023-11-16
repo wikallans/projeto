@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contatos</title>
+</head>
+<body>
+    <h1>Agenda de Contatos</h1>
+    <ul>
+        {% for contato in contatos %}
+            <li>{{ contato.nome }} - {{ contato.email }} - {{ contato.telefone }} - {{ contato.endereco }} - {{ contato.data_nascimento }}</li>
+            <a href="{{ url_for('editar_contato', id=contato.id) }}">Editar</a>
+            <a href="{{ url_for('excluir_contato', id=contato.id) }}">Excluir</a>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('adicionar_contato') }}">Adicionar Contato</a>
+</body>
+</html>
